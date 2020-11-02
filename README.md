@@ -1,27 +1,40 @@
-# Untitled
+# Mercell Holding AS Task
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+## Explanation
 
-## Development server
+This solution is made with Angular framework and TypeScript language. This is a 
+quick one hour answer to the problem of displaying the list of products in a tree
+and allowing to add new categories. It also includes validation for new 
+categories the user can input.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Anyway, I know it isn't the best solution, as it renders more HTML tags than 
+necessary, it's a quick one that orders the list and detects the level of the 
+category for displaying based on a division.
 
-## Code scaffolding
+With more time, I think the proper solution would be creating the correct data 
+structure from the plain list with the `groupBy` method of the **lodash** 
+JavaScript library. If we check its documentation, we can read the following:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+>Creates an object composed of keys generated from the results of running each 
+>element of collection thru iteratee. The order of grouped values is determined 
+>by the order they occur in collection. The corresponding value of each key is
+>an array of elements responsible for generating the key. The iteratee is invoked 
+>with one argument: (value).
+  
+So, we can use it to group the categories recursively using every two digits 
+starting from the most valuable digit as we know every code has 8. 
 
-## Build
+## Deploy task
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Precondition: Node.js and NPM package manager should be installed.
 
-## Running unit tests
+Navigate to the root folder from a command line, install Angular and 
+needed dependencies and run the project with the following commands. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm install 
+ng serve
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Then you can navigate to `http://localhost:4200/`. The app will automatically 
+reload if you change any of the source files.
