@@ -1,0 +1,41 @@
+<form class="my-form" [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)" *ngIf="productForm">
+  <div class="row">
+    <div class="col">
+      <label for="code">Code</label>
+      <input id="code" type="text" formControlName="code" maxlength="8" minlength="8" class="form-control">
+    </div>
+
+    <div class="col">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" class="form-control">
+    </div>
+  </div>
+
+  <button class="button" type="submit" [disabled]="!productForm?.valid">Send</button>
+</form>
+
+
+
+<div *ngIf="orderedInfo && orderedInfo.length" class="list">
+  <div *ngFor="let item of orderedInfo">
+    <ul>
+        <li *ngIf="isInteger(item.code, 4)"> {{item.code + " " + item.name}} </li>
+        <ul *ngIf="!isInteger(item.code, 4)">
+
+            <li *ngIf="isInteger(item.code, 3)">{{item.code + " " + item.name}}</li>
+            <ul *ngIf="!isInteger(item.code, 3)">
+
+                <li *ngIf="isInteger(item.code, 2)">{{item.code + " " + item.name}}</li>
+                <ul *ngIf="!isInteger(item.code, 2)">
+
+                  <li>{{item.code + " " + item.name}}</li>
+
+                </ul>
+
+            </ul>
+
+        </ul>
+
+    </ul>
+  </div>
+</div>
